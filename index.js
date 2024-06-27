@@ -1,13 +1,37 @@
-const express = require("express");
+import express from "express";
+import dotenv from "dotenv"
+dotenv.config();
+import cors from "cors";
+import morgan from "morgan";
+
+//import routers
+import initRoutes from "./src/routes/index.js";
+//import database
+import connectDatabase from "./src/config/connectDatabase.js";
+
+
 const app = express();
-const port = 3000;
 
+//config nhận client url và các method của client
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL,
+    methods: ["POST","GET","PUT","DELETE"]
+  })
+);
 
-// respond with "hello world" when a GET request is made to the homepage
-app.get("/", (req, res) => {
-  res.send("hello world");
-});
+//config trả về json
+app.use(express.json())
+//cofig đọc form data từ clien gửi lên
+app.use(express.urlencoded({extended : true}))
+const port = process.env.PORT || 8888;
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+//log
+app.use(morgan("combined"));
+
+initRoutes(app)
+connectDatabase()
+
+const listen = app.listen(port, () => {
+  console.log(`Example app listening on port ${listen.address().port}`);
 });
