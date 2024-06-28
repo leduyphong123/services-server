@@ -1,11 +1,16 @@
 import { Sequelize } from "sequelize";
 
 // Option 3: Passing parameters separately (other dialects)
-const sequelize = new Sequelize("bay_bich_cosmetics", "root", "root", {
-  host: "localhost",
-  dialect: "mysql", //todo: /* one of| 'postgres' | 'sqlite' | 'mariadb' | 'mssql' | 'db2' | 'snowflake' | 'oracle' */,
-  logging: false // tránh console.log của connectDatabase
-});
+const sequelize = new Sequelize(
+  process.env.DB_NAME,
+  process.env.DB_USER_NAME,
+  process.env.DB_PASSWORD,
+  {
+    host: process.env.DB_HOST,
+    dialect: process.env.DB_DIALECT, //todo: /* one of| 'postgres' | 'sqlite' | 'mariadb' | 'mssql' | 'db2' | 'snowflake' | 'oracle' */,
+    logging: false, // tránh console.log của connectDatabase
+  }
+);
 
 const connectDatabase = async () => {
   try {
@@ -16,4 +21,4 @@ const connectDatabase = async () => {
   }
 };
 
-export default connectDatabase
+export default connectDatabase;

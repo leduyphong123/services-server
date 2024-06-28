@@ -5,9 +5,9 @@ import cors from "cors";
 import morgan from "morgan";
 
 //import routers
-import initRoutes from "./src/routes/index.js";
+import initRoutes from "./src/routes/index";
 //import database
-import connectDatabase from "./src/config/connectDatabase.js";
+import connectDatabase from "./src/config/connectDatabase";
 
 
 const app = express();

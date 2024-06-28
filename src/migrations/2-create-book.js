@@ -21,9 +21,12 @@ module.exports = {
       img: {
         type: Sequelize.STRING,
       },
-      userID: {
+      userId: {
         type: Sequelize.BIGINT,
-        
+        references: {
+          model: "Users",
+          key: "id",
+        },
       },
       createdAt: {
         allowNull: false,

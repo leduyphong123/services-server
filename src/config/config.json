@@ -1,24 +1,26 @@
 {
   "development": {
+    "username": "bay69834_bay_bich_cosmetics",
+    "password": "baybich123@",
+    "database": "bay69834_bay_bich_cosmetics",
+    "host": "103.138.88.23",
+    "dialect": "mysql",
+    "logging": false
+  },
+  "test": {
     "username": "root",
     "password": "root",
     "database": "bay_bich_cosmetics",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "logging": "false"
-  },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "logging": false
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "bay69834_bay_bich_cosmetics",
+    "password": "baybich123@",
+    "database": "bay69834_bay_bich_cosmetics",
+    "host": "103.138.88.23",
+    "dialect": "mysql",
+    "logging": false
   }
 }
